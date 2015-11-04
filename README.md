@@ -1,5 +1,7 @@
 # MocaConfiguration
 
+[![Build status](https://ci.appveyor.com/api/projects/status/hukxim3f78gobba1?svg=true)](https://ci.appveyor.com/project/miyabis/mocaconfiguration)
+
 
 Configuration file Section Protection.
 
@@ -15,12 +17,12 @@ PM> Install-Package Moca.NETConfiguration
 App.config Section Protection setting
 ==========
 
-C#:Properties\AppConfigTransformAssemblyInfo.cs file Please cancel comment.
+C#:add Assembly property.
 ```
 [Assembly: Moca.Configuration.SectionProtection(Moca.Configuration.ProtectionProviderType.DPAPI, "Section Name")]
 ```
 
-VB:My Project\AppConfigTransformAssemblyInfo.vb file Please cancel comment.
+VB:add Assembly property.
 ```
 '<Assembly: Moca.Configuration.SectionProtection(Moca.Configuration.ProtectionProviderType.DPAPI, "Section Name")> 
 ```
