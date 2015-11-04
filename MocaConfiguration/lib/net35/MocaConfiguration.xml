@@ -1,0 +1,226 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MocaConfiguration
+</name>
+</assembly>
+<members>
+<member name="T:Moca.Configuration.DPAPIProtectionConfiguration">
+ <summary>
+ DataProtectionConfigurationProvider を使った暗号化・複合化をする。
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:Moca.Configuration.DPAPIProtectionConfiguration.C_PROVIDER">
+ <summary>使用する暗号化プロバイダー</summary>
+</member>
+<member name="T:Moca.Configuration.ProtectionConfiguration">
+ <summary>
+ 構成ファイルを暗号化する為の抽象クラス
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Moca.Configuration.ProtectionConfiguration.Provider">
+ <summary>使用する暗号化プロバイダー</summary>
+</member>
+<member name="F:Moca.Configuration.ProtectionConfiguration.config">
+ <summary>使用するapp.configファイル</summary>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.#ctor">
+ <summary>
+ デフォルトコンストラクタ
+ </summary>
+ <remarks>
+ 起動中アプリケーションの構成ファイルに対して処理します。
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.#ctor(System.Configuration.Configuration)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="config">使用するapp.configファイル</param>
+ <remarks>app.configファイルを指定する時に使用する。</remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.ProtectConnectionStrings">
+ <summary>
+ 接続文字列を暗号化します。
+ </summary>
+ <remarks>
+ アプリケーション構成ファイルの接続文字列セクションに対して暗号化を行います。<br/>
+ ただし、下記の場合は暗号化は行いません。<br/>
+ ・接続文字列が無い時<br/>
+ ・既に暗号化されている時<br/>
+ ・ロックされている時<br/>
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.UnProtectConnectionStrings">
+ <summary>
+ 接続文字列を複合化します。
+ </summary>
+ <remarks>
+ アプリケーション構成ファイルの接続文字列セクションに対して複合化を行います。<br/>
+ ただし、下記の場合は複合化は行いません。<br/>
+ ・接続文字列が無い時<br/>
+ ・既に暗号化されている時<br/>
+ ・ロックされている時<br/>
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.ProtectAppSettings">
+ <summary>
+ AppSettingsを暗号化します。
+ </summary>
+ <remarks>
+ アプリケーション構成ファイルのAppSettingsセクションに対して暗号化を行います。<br/>
+ ただし、下記の場合は暗号化は行いません。<br/>
+ ・接続文字列が無い時<br/>
+ ・既に暗号化されている時<br/>
+ ・ロックされている時<br/>
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.UnProtectAppSettings">
+ <summary>
+ AppSettingsを複合化します。
+ </summary>
+ <remarks>
+ アプリケーション構成ファイルのAppSettingsセクションに対して複合化を行います。<br/>
+ ただし、下記の場合は複合化は行いません。<br/>
+ ・接続文字列が無い時<br/>
+ ・既に暗号化されている時<br/>
+ ・ロックされている時<br/>
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.ProtectSection(System.String)">
+ <summary>
+ 指定したセクションを暗号化します。
+ </summary>
+ <remarks>
+ アプリケーション構成ファイルの指定したセクションに対して暗号化を行います。<br/>
+ ただし、下記の場合は暗号化は行いません。<br/>
+ ・接続文字列が無い時<br/>
+ ・既に暗号化されている時<br/>
+ ・ロックされている時<br/>
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration.UnProtectSection(System.String)">
+ <summary>
+ 指定したセクションを複合化します。
+ </summary>
+ <remarks>
+ アプリケーション構成ファイルの指定したセクションに対して複合化を行います。<br/>
+ ただし、下記の場合は複合化は行いません。<br/>
+ ・接続文字列が無い時<br/>
+ ・既に暗号化されている時<br/>
+ ・ロックされている時<br/>
+ </remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration._protectSection(System.Configuration.ConfigurationSection)">
+ <summary>
+ 暗号化
+ </summary>
+ <param name="section"></param>
+ <remarks></remarks>
+</member>
+<member name="M:Moca.Configuration.ProtectionConfiguration._unProtectSection(System.Configuration.ConfigurationSection)">
+ <summary>
+ 複合化
+ </summary>
+ <param name="section"></param>
+ <remarks></remarks>
+</member>
+<member name="T:Moca.Configuration.RSAProtectionConfiguration">
+ <summary>
+ RsaProtectedConfigurationProvider を使った暗号化・複合化をする。
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:Moca.Configuration.RSAProtectionConfiguration.C_PROVIDER">
+ <summary>使用するプロパイダー</summary>
+</member>
+<member name="T:Moca.Configuration.SectionProtector">
+ <summary>
+ 構成ファイルのセクションを暗号化・複合化する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:Moca.Configuration.SectionProtector._lock">
+ <summary>オブジェクト参照に評価される式</summary>
+</member>
+<member name="M:Moca.Configuration.SectionProtector.Protect">
+ <summary>
+ 暗号化する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:Moca.Configuration.SectionProtector.UnProtect">
+ <summary>
+ 複合化する
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:Moca.Configuration.SectionProtector._getAttributes(System.Reflection.Assembly)">
+ <summary>
+ 呼び元アセンブリの <see cref="T:Moca.Configuration.SectionProtectionAttribute"></see> 属性を取得する
+ </summary>
+ <param name="callingAssembly"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Moca.Configuration.SectionProtector._getProtectionConfiguration(Moca.Configuration.SectionProtectionAttribute)">
+ <summary>
+ 属性で指定された暗号化プロパイダーを取得する
+ </summary>
+ <param name="attr"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:Moca.Configuration.ProtectionProviderType">
+ <summary>
+ 暗号化プロバイダータイプ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Moca.Configuration.SectionProtectionAttribute">
+ <summary>
+ 構成ファイルの暗号化するセクションを指定する属性
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:Moca.Configuration.SectionProtectionAttribute._sectionName">
+ <summary>セクション名</summary>
+</member>
+<member name="P:Moca.Configuration.SectionProtectionAttribute.SectionName">
+ <summary>セクション名</summary>
+</member>
+<member name="F:Moca.Configuration.SectionProtectionAttribute._provider">
+ <summary>使用する暗号化プロパイダータイプ</summary>
+</member>
+<member name="P:Moca.Configuration.SectionProtectionAttribute.Provider">
+ <summary>使用する暗号化プロパイダータイプ</summary>
+</member>
+<member name="M:Moca.Configuration.SectionProtectionAttribute.#ctor(Moca.Configuration.ProtectionProviderType,System.String)">
+ <summary>
+ コンストラクタ
+ </summary>
+ <param name="provider">使用する暗号化プロパイダータイプ</param>
+ <param name="sectionName">セクション名</param>
+ <remarks></remarks>
+</member>
+<member name="T:Moca.My.Resources.Resources">
+<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member>
+<member name="P:Moca.My.Resources.Resources.ResourceManager">
+<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member>
+<member name="P:Moca.My.Resources.Resources.Culture">
+<summary>
+  厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member>
+</members>
+</doc>
