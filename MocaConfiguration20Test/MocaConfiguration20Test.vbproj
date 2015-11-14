@@ -117,12 +117,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MocaConfiguration20\MocaConfiguration20.vbproj">
-      <Project>{79446f7f-1f50-4926-8264-b2cf92eccb6f}</Project>
-      <Name>MocaConfiguration20</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

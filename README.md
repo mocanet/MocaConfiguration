@@ -1,6 +1,7 @@
 # MocaConfiguration
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hukxim3f78gobba1?svg=true)](https://ci.appveyor.com/project/miyabis/mocaconfiguration)
+[![NuGet](https://img.shields.io/nuget/v/Moca.NETConfiguration.svg)](https://www.nuget.org/packages/Moca.NETConfiguration/)
 
 
 Configuration file Section Protection.
@@ -24,7 +25,7 @@ C#:add Assembly property.
 
 VB:add Assembly property.
 ```
-'<Assembly: Moca.Configuration.SectionProtection(Moca.Configuration.ProtectionProviderType.DPAPI, "Section Name")> 
+<Assembly: Moca.Configuration.SectionProtection(Moca.Configuration.ProtectionProviderType.DPAPI, "Section Name")> 
 ```
 
 Protection Provider Type DPAPI or RSA.
