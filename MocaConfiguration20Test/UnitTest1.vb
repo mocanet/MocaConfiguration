@@ -10,4 +10,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 		Moca.Configuration.SectionProtector.Protect()
     End Sub
 
+    <TestMethod()> Public Sub TestMethod2()
+        Moca.Configuration.SectionProtector.UnProtect()
+    End Sub
+
 End Class

@@ -24,7 +24,11 @@ Namespace Configuration
         ''' 起動中アプリケーションの構成ファイルに対して処理します。
         ''' </remarks>
         Public Sub New()
-            config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            Try
+                config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+            Catch ex As ArgumentException
+                config = ConfigurationManager.OpenExeConfiguration(String.Empty)
+            End Try
         End Sub
 
         ''' <summary>

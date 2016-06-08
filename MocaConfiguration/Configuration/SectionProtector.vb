@@ -19,9 +19,9 @@ Namespace Configuration
 		Public Shared Sub Protect()
 			SyncLock _lock
 				Dim attributes() As SectionProtectionAttribute
-				attributes = _getAttributes(Assembly.GetCallingAssembly())
+                attributes = _getAttributes()
 
-				For Each attr As SectionProtectionAttribute In attributes
+                For Each attr As SectionProtectionAttribute In attributes
 					Dim protection As ProtectionConfiguration = _getProtectionConfiguration(attr)
 					If protection Is Nothing Then
 						Continue For
@@ -38,9 +38,9 @@ Namespace Configuration
 		Public Shared Sub UnProtect()
 			SyncLock _lock
 				Dim attributes() As SectionProtectionAttribute
-				attributes = _getAttributes(Assembly.GetCallingAssembly())
+                attributes = _getAttributes()
 
-				For Each attr As SectionProtectionAttribute In attributes
+                For Each attr As SectionProtectionAttribute In attributes
 					Dim protection As ProtectionConfiguration = _getProtectionConfiguration(attr)
 					If protection Is Nothing Then
 						Continue For
@@ -50,13 +50,21 @@ Namespace Configuration
 			End SyncLock
 		End Sub
 
-		''' <summary>
-		''' 呼び元アセンブリの <see cref="SectionProtectionAttribute"></see> 属性を取得する
-		''' </summary>
-		''' <param name="callingAssembly"></param>
-		''' <returns></returns>
-		''' <remarks></remarks>
-		Private Shared Function _getAttributes(ByVal callingAssembly As Assembly) As SectionProtectionAttribute()
+        Private Shared Function _getAttributes() As SectionProtectionAttribute()
+            Dim lst As New List(Of SectionProtectionAttribute)
+            For Each assm As Assembly In AppDomain.CurrentDomain.GetAssemblies()
+                lst.AddRange(_getAttributes(assm))
+            Next
+            Return lst.ToArray
+        End Function
+
+        ''' <summary>
+        ''' 呼び元アセンブリの <see cref="SectionProtectionAttribute"></see> 属性を取得する
+        ''' </summary>
+        ''' <param name="callingAssembly"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Private Shared Function _getAttributes(ByVal callingAssembly As Assembly) As SectionProtectionAttribute()
 			Return callingAssembly.GetCustomAttributes(GetType(SectionProtectionAttribute), True)
 		End Function
 
