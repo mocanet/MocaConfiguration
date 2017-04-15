@@ -194,3 +194,6 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+/NuGet.Packager/lib
+/NuGet.Packager/Moca.NETConfiguration.1.0.3.symbols.nupkg.bak
+/NuGet.Packager/Moca.NETConfiguration.1.0.3.nupkg.bak
