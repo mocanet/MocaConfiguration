@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration20.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration35.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration40.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration45.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration452.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration46.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration462.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration47.vbproj" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>c244f77d-fc7a-49d9-9b82-979dd8db9b97</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Id>Moca.NETConfiguration</Id>
+    <Version>1.0.4</Version>
+    <Title>Moca.NET Configuration</Title>
+    <Authors>MiYABiS</Authors>
+    <Owners>MiYABiS</Owners>
+    <Summary>Configuration file Section Protection.</Summary>
+    <Description>Configuration file Section Protection.</Description>
+    <ReleaseNotes>
+    </ReleaseNotes>
+    <ProjectUrl>https://github.com/mocanet/MocaConfiguration</ProjectUrl>
+    <LicenseUrl>https://opensource.org/licenses/MS-PL</LicenseUrl>
+    <Copyright>Copyright © 2015 MiYABiS All Rights Reserved.</Copyright>
+    <Tags>Moca</Tags>
+    <IconUrl>https://avatars1.githubusercontent.com/u/14543303</IconUrl>
+    <EmbedSourceFiles>true</EmbedSourceFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NuProjPath>..\packages\NuProj.0.11.14-beta\tools\</NuProjPath>
+  </PropertyGroup>
+  <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
+  <Import Project="$(NuProjPath)\NuProj.targets" />
+</Project>

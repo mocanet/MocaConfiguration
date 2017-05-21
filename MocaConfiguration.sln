@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C4375D
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MocaConfiguration20", "MocaConfiguration\MocaConfiguration20.vbproj", "{79446F7F-1F50-4926-8264-B2CF92ECCB6F}"
@@ -54,17 +55,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MocaConfiguration462", "Moc
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MocaConfiguration47", "MocaConfiguration\MocaConfiguration47.vbproj", "{F8D3F993-9D4E-4538-B56F-DBB3412A91C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.Packager", "NuGet.Packager\NuGet.Packager.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
-	ProjectSection(ProjectDependencies) = postProject
-		{BA908F3C-3FFD-4F0D-AA6B-B54A973C9B30} = {BA908F3C-3FFD-4F0D-AA6B-B54A973C9B30}
-		{25CC8762-0D6F-41AC-B630-ADFA5B5B71D1} = {25CC8762-0D6F-41AC-B630-ADFA5B5B71D1}
-		{79446F7F-1F50-4926-8264-B2CF92ECCB6F} = {79446F7F-1F50-4926-8264-B2CF92ECCB6F}
-		{F8D3F993-9D4E-4538-B56F-DBB3412A91C7} = {F8D3F993-9D4E-4538-B56F-DBB3412A91C7}
-		{6B3529AE-503D-4FB9-9120-E40734F91A0B} = {6B3529AE-503D-4FB9-9120-E40734F91A0B}
-		{777C4FCD-437C-436B-899A-A49E48A3AC55} = {777C4FCD-437C-436B-899A-A49E48A3AC55}
-		{6089B0D0-94E1-48D2-BB63-FD090B3B9FA8} = {6089B0D0-94E1-48D2-BB63-FD090B3B9FA8}
-		{11E7A8EC-DF15-430E-AF4A-BE66E2508F6B} = {11E7A8EC-DF15-430E-AF4A-BE66E2508F6B}
-	EndProjectSection
+Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "NuGet.Package", "NuGet.Package\NuGet.Package.nuproj", "{C244F77D-FC7A-49D9-9B82-979DD8DB9B97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,10 +106,10 @@ Global
 		{F8D3F993-9D4E-4538-B56F-DBB3412A91C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8D3F993-9D4E-4538-B56F-DBB3412A91C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8D3F993-9D4E-4538-B56F-DBB3412A91C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C244F77D-FC7A-49D9-9B82-979DD8DB9B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C244F77D-FC7A-49D9-9B82-979DD8DB9B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C244F77D-FC7A-49D9-9B82-979DD8DB9B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C244F77D-FC7A-49D9-9B82-979DD8DB9B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
