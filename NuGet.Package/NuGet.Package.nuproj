@@ -25,7 +25,7 @@
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Id>Moca.NETConfiguration</Id>
-    <Version>1.1.0</Version>
+    <Version>2.0.0-beta01</Version>
     <Title>Moca.NET Configuration</Title>
     <Authors>MiYABiS</Authors>
     <Owners>MiYABiS</Owners>
@@ -36,13 +36,13 @@
     <ProjectUrl>https://github.com/mocanet/MocaConfiguration</ProjectUrl>
     <LicenseUrl>https://opensource.org/licenses/MS-PL</LicenseUrl>
     <Copyright>Copyright © 2015 MiYABiS All Rights Reserved.</Copyright>
-    <Tags>Moca</Tags>
-    <IconUrl>https://avatars3.githubusercontent.com/u/14543303?s=64</IconUrl>
+    <Tags>Moca.NET</Tags>
+    <IconUrl>https://avatars3.githubusercontent.com/u/14543303?s=256</IconUrl>
     <EmbedSourceFiles>true</EmbedSourceFiles>
     <GenerateSymbolPackage>true</GenerateSymbolPackage>
   </PropertyGroup>
   <PropertyGroup>
-    <NuProjPath>..\packages\NuProj.0.11.28-beta\tools\</NuProjPath>
+    <NuProjPath>..\packages\NuProj.0.11.30\tools\</NuProjPath>
   </PropertyGroup>
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <Import Project="$(NuProjPath)\NuProj.targets" />
