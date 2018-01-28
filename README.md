@@ -2,6 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hukxim3f78gobba1?svg=true)](https://ci.appveyor.com/project/miyabis/mocaconfiguration)
 [![NuGet](https://img.shields.io/nuget/v/Moca.NETConfiguration.svg)](https://www.nuget.org/packages/Moca.NETConfiguration/)
+[![NuGet Pre Release](https://img.shields.io/nuget/vpre/Moca.NETConfiguration.svg)](https://www.nuget.org/packages/Moca.NETConfiguration/)
 
 
 Configuration file Section Protection.
