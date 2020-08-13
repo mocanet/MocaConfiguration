@@ -9,11 +9,12 @@ Namespace Configuration
     ''' <remarks></remarks>
     Public MustInherit Class ProtectionConfiguration
 
-		''' <summary>使用する暗号化プロバイダー</summary>
+        ''' <summary>使用する暗号化プロバイダー</summary>
         Public MustOverride ReadOnly Property Provider As String
 
         ''' <summary>使用するapp.configファイル</summary>
         Protected config As System.Configuration.Configuration
+        Protected configUser As System.Configuration.Configuration
 
 #Region " Constructor/DeConstructor "
 
@@ -29,6 +30,7 @@ Namespace Configuration
             Catch ex As ArgumentException
                 config = ConfigurationManager.OpenExeConfiguration(String.Empty)
             End Try
+            configUser = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal)
         End Sub
 
         ''' <summary>
@@ -56,7 +58,7 @@ Namespace Configuration
         ''' </remarks>
         Public Sub ProtectConnectionStrings()
             Dim section As ConfigurationSection = config.ConnectionStrings
-            _protectSection(section)
+            _protectSection(config, section)
         End Sub
 
         ''' <summary>
@@ -71,7 +73,7 @@ Namespace Configuration
         ''' </remarks>
         Public Sub UnProtectConnectionStrings()
             Dim section As ConfigurationSection = config.ConnectionStrings
-            _unProtectSection(section)
+            _unProtectSection(config, section)
         End Sub
 
 #End Region
@@ -89,7 +91,7 @@ Namespace Configuration
         ''' </remarks>
         Public Sub ProtectAppSettings()
             Dim section As ConfigurationSection = config.AppSettings
-            _protectSection(section)
+            _protectSection(config, section)
         End Sub
 
         ''' <summary>
@@ -104,7 +106,7 @@ Namespace Configuration
         ''' </remarks>
         Public Sub UnProtectAppSettings()
             Dim section As ConfigurationSection = config.AppSettings
-            _unProtectSection(section)
+            _unProtectSection(config, section)
         End Sub
 
 #End Region
@@ -122,12 +124,23 @@ Namespace Configuration
         ''' </remarks>
         Public Sub ProtectSection(ByVal sectionName As String)
             Dim section As ConfigurationSection = config.GetSection(sectionName)
-            ' 接続文字列が無い時は無視
-            If section Is Nothing Then
-				Trace.TraceWarning("Can't get the section {0}", sectionName)
-                Exit Sub
+
+            If section IsNot Nothing Then
+                _protectSection(config, section)
+                Return
             End If
-            _protectSection(section)
+
+            Dim group As ConfigurationSectionGroup = configUser.GetSectionGroup("userSettings")
+            If group Is Nothing Then
+                Return
+            End If
+
+            section = group.Sections().Get(sectionName)
+            If section Is Nothing Then
+                Return
+            End If
+
+            _protectSection(configUser, section)
         End Sub
 
         ''' <summary>
@@ -142,12 +155,23 @@ Namespace Configuration
         ''' </remarks>
         Public Sub UnProtectSection(ByVal sectionName As String)
             Dim section As ConfigurationSection = config.GetSection(sectionName)
-            ' 接続文字列が無い時は無視
-            If section Is Nothing Then
-				Trace.TraceWarning("Can't get the section {0}", sectionName)
-				Exit Sub
+
+            If section IsNot Nothing Then
+                _unProtectSection(config, section)
+                Return
             End If
-            _unProtectSection(section)
+
+            Dim group As ConfigurationSectionGroup = configUser.GetSectionGroup("userSettings")
+            If group Is Nothing Then
+                Return
+            End If
+
+            section = group.Sections().Get(sectionName)
+            If section Is Nothing Then
+                Return
+            End If
+
+            _unProtectSection(configUser, section)
         End Sub
 
 #End Region
@@ -159,30 +183,30 @@ Namespace Configuration
         ''' </summary>
         ''' <param name="section"></param>
         ''' <remarks></remarks>
-        Private Sub _protectSection(ByVal section As ConfigurationSection)
+        Private Sub _protectSection(ByVal config As System.Configuration.Configuration, ByVal section As ConfigurationSection)
             ' 接続文字列が無い時は無視
             If section Is Nothing Then
-                Exit Sub
+                Return
             End If
 
             ' 既に暗号化されている時は無視
             If section.SectionInformation.IsProtected Then
-				Trace.TraceInformation("Section {0} is already protected by {1}", section.SectionInformation.Name, section.SectionInformation.ProtectionProvider.Name)
-				Exit Sub
+                Trace.TraceInformation("Section {0} is already protected by {1}", section.SectionInformation.Name, section.SectionInformation.ProtectionProvider.Name)
+                Return
             End If
 
             ' ロックされている時は無視
             If section.ElementInformation.IsLocked Then
-				Trace.TraceInformation("Can't protect, section {0} is locked", section.SectionInformation.Name)
-                Exit Sub
+                Trace.TraceInformation("Can't protect, section {0} is locked", section.SectionInformation.Name)
+                Return
             End If
 
             ' 暗号化！
             section.SectionInformation.ProtectSection(Me.Provider)
             section.SectionInformation.ForceSave = True
-			config.Save(ConfigurationSaveMode.Modified)
+            config.Save(ConfigurationSaveMode.Modified)
 
-			Trace.TraceInformation("Section {0} is now protected by {1}", section.SectionInformation.Name, section.SectionInformation.ProtectionProvider.Name)
+            Trace.TraceInformation("Section {0} is now protected by {1}", section.SectionInformation.Name, section.SectionInformation.ProtectionProvider.Name)
         End Sub
 
         ''' <summary>
@@ -190,31 +214,31 @@ Namespace Configuration
         ''' </summary>
         ''' <param name="section"></param>
         ''' <remarks></remarks>
-        Private Sub _unProtectSection(ByVal section As ConfigurationSection)
+        Private Sub _unProtectSection(ByVal config As System.Configuration.Configuration, ByVal section As ConfigurationSection)
             ' 接続文字列が無い時は無視
             If section Is Nothing Then
-				Trace.TraceInformation("Can't get the section {0}", section.SectionInformation.Name)
-                Exit Sub
+                Trace.TraceInformation("Can't get the section {0}", section.SectionInformation.Name)
+                Return
             End If
 
             ' 既に複合化されている時は無視
             If Not section.SectionInformation.IsProtected Then
-				Trace.TraceInformation("Section {0} is already unprotected.", section.SectionInformation.Name)
-                Exit Sub
+                Trace.TraceInformation("Section {0} is already unprotected.", section.SectionInformation.Name)
+                Return
             End If
 
             ' ロックされている時は無視
             If section.ElementInformation.IsLocked Then
-				Trace.TraceInformation("Can't unprotect, section {0} is locked", section.SectionInformation.Name)
-                Exit Sub
+                Trace.TraceInformation("Can't unprotect, section {0} is locked", section.SectionInformation.Name)
+                Return
             End If
 
             ' 複合化！
             section.SectionInformation.UnprotectSection()
             section.SectionInformation.ForceSave = True
-			config.Save(ConfigurationSaveMode.Modified)
+            config.Save(ConfigurationSaveMode.Modified)
 
-			Trace.TraceInformation("Section {0} is now unprotected.", section.SectionInformation.Name)
+            Trace.TraceInformation("Section {0} is now unprotected.", section.SectionInformation.Name)
         End Sub
 
 #End Region
