@@ -63,3 +63,9 @@ Imports System.Runtime.InteropServices
 #If net47 Then
 <Assembly: AssemblyTitle("Moca.NET Configuration .NET 4.7")>
 #End If
+#If net472 Then
+<Assembly: AssemblyTitle("Moca.NET Configuration .NET 4.7.2")>
+#End If
+#If net48 Then
+<Assembly: AssemblyTitle("Moca.NET Configuration .NET 4.8")>
+#End If

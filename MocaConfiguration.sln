@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MocaConfiguration20Test", "MocaConfiguration20Test\MocaConfiguration20Test.vbproj", "{C2381D27-A0A8-4CDA-A96E-2735FEE215D8}"
 EndProject
@@ -13,9 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C4375DEE-1A1E-4384-B735-0A4CD19819FB}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
@@ -44,6 +41,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{614DFB07-CF30-4FA2-811A-B0370F2168C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{D6F5C749-BDBA-460E-A9D3-09E4AE14BEFD}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MocaConfiguration472", "MocaConfiguration\MocaConfiguration472.vbproj", "{B6A6A9AF-6AAF-45A5-A036-50A5B6530BE8}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MocaConfiguration48", "MocaConfiguration\MocaConfiguration48.vbproj", "{5C424BFF-A13B-4DA3-BAA8-782DC9589F6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,6 +101,14 @@ Global
 		{D6F5C749-BDBA-460E-A9D3-09E4AE14BEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6F5C749-BDBA-460E-A9D3-09E4AE14BEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6F5C749-BDBA-460E-A9D3-09E4AE14BEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A6A9AF-6AAF-45A5-A036-50A5B6530BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A6A9AF-6AAF-45A5-A036-50A5B6530BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A6A9AF-6AAF-45A5-A036-50A5B6530BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A6A9AF-6AAF-45A5-A036-50A5B6530BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C424BFF-A13B-4DA3-BAA8-782DC9589F6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C424BFF-A13B-4DA3-BAA8-782DC9589F6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C424BFF-A13B-4DA3-BAA8-782DC9589F6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C424BFF-A13B-4DA3-BAA8-782DC9589F6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

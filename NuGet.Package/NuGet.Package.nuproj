@@ -19,20 +19,21 @@
     <ProjectReference Include="..\MocaConfiguration\MocaConfiguration46.vbproj" />
     <ProjectReference Include="..\MocaConfiguration\MocaConfiguration462.vbproj" />
     <ProjectReference Include="..\MocaConfiguration\MocaConfiguration47.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration472.vbproj" />
+    <ProjectReference Include="..\MocaConfiguration\MocaConfiguration48.vbproj" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>c244f77d-fc7a-49d9-9b82-979dd8db9b97</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Id>Moca.NETConfiguration</Id>
-    <Version>2.0.0-beta02</Version>
+    <Version>2.0.0</Version>
     <Title>Moca.NET Configuration</Title>
     <Authors>MiYABiS</Authors>
     <Owners>MiYABiS</Owners>
     <Summary>Configuration file Section Protection.</Summary>
     <Description>Configuration file Section Protection.</Description>
-    <ReleaseNotes>
-    </ReleaseNotes>
+    <ReleaseNotes>GitHub issues : #6</ReleaseNotes>
     <ProjectUrl>https://github.com/mocanet/MocaConfiguration</ProjectUrl>
     <LicenseUrl>https://opensource.org/licenses/MS-PL</LicenseUrl>
     <Copyright>Copyright © 2015 MiYABiS All Rights Reserved.</Copyright>

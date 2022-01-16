@@ -1,6 +1,5 @@
 # MocaConfiguration
 
-[![Build status](https://ci.appveyor.com/api/projects/status/hukxim3f78gobba1?svg=true)](https://ci.appveyor.com/project/miyabis/mocaconfiguration)
 [![NuGet](https://img.shields.io/nuget/v/Moca.NETConfiguration.svg)](https://www.nuget.org/packages/Moca.NETConfiguration/)
 [![NuGet Pre Release](https://img.shields.io/nuget/vpre/Moca.NETConfiguration.svg)](https://www.nuget.org/packages/Moca.NETConfiguration/)
 [![NuGet](https://img.shields.io/nuget/dt/Moca.NETConfiguration.svg)](https://www.nuget.org/packages/Moca.NETConfiguration/)
@@ -20,6 +19,8 @@ Configuration file Section Protection.
 * 4.6
 * 4.6.2
 * 4.7
+* 4.7.2
+* 4.8
 
 ## How to get
 
@@ -69,7 +70,7 @@ Moca.Configuration.SectionProtector.Protect()
 
 ## For Development
 
-* Visual Studio 2017
+* Visual Studio 2019
 
 ## License
 
